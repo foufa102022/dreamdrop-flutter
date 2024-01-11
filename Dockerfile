@@ -1,24 +1,22 @@
-# Utilisez une image de base avec Flutter et Dart préinstallés
-FROM cirrusci/flutter:2.15.0
+# Use the latest version of cirrusci/flutter image
+FROM cirrusci/flutter:latest
 
-# Créez et définissez le répertoire de travail
+# Set the working directory
 WORKDIR /app
 
-# Copiez les fichiers nécessaires dans le conteneur
+# Copy the project files into the container
 COPY . .
 
-# Exécutez les commandes Flutter pour construire l'application
+# Run Flutter commands to get dependencies and build the application
 RUN flutter pub get
 RUN flutter build apk --release
 
-# Exposez le port si nécessaire (selon le type d'application Flutter)
+# Optionally expose a port if needed
 # EXPOSE 3000
 
-# Commande pour démarrer l'application (peut varier en fonction du type d'application)
-# CMD ["flutter", "run"]
+# Command to run the application (may vary based on your Flutter project)
+CMD ["flutter", "run"]
 
-# Vous pouvez commenter la commande "flutter run" et utiliser la commande "flutter build" pour la construction de l'APK
-# CMD ["flutter", "build", "apk", "--release"]
 
 
 
