@@ -1,5 +1,5 @@
-# Utilisez une image de base appropriée avec Flutter préinstallé
-FROM cirrusci/flutter:2.8.0
+# Utilisez une image de base avec Flutter et Dart préinstallés
+FROM cirrusci/flutter:2.15.0
 
 # Créez et définissez le répertoire de travail
 WORKDIR /app
@@ -19,6 +19,7 @@ RUN flutter build apk --release
 
 # Vous pouvez commenter la commande "flutter run" et utiliser la commande "flutter build" pour la construction de l'APK
 # CMD ["flutter", "build", "apk", "--release"]
+
 
 
 
